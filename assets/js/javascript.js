@@ -1,12 +1,31 @@
 // AJAX METHODS
 
-var searchIngredient = prompt("Insert an ingredient here."); // $("#searchIngredient").val().trim();
-var queryURLIngredient ="https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + searchIngredient;
-var searchDrink = prompt("Insert drink name here."); // $("#searchDrink").val().trim();
+var searchIngredient = "";//prompt("Insert an ingredient here."); // $("#searchIngredient").val().trim();
+var queryURLIngredient ="https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
+var searchDrink = "";//prompt("Insert drink name here."); // $("#searchDrink").val().trim();
 var queryURLDrink ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchDrink;
 var queryURLQuote ="https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/method=getQuote&key=457653&format=jsonp&lang=en";
+var drinksArray = [];
 
+console.log(queryURLIngredient);
 // AJAX METHOD FOR INGREDIENT SEARCH
+
+function ingredientSearch(){
+    // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
+   $("form").submit(function(){
+    event.preventDefault();
+    // SELECTING INGREDIENT INPUT FROM FORM
+    searchIngredient = $("#ingredient").val().trim();
+    // CONCATENATE INGREDIENT AND URL
+    queryURLIngredient += searchIngredient;
+    // CALL AJAX FOR INGREDIENT SEARCH
+    callDrinkAjax(queryURLIngredient);
+    console.log(queryURLIngredient);
+    console.log(searchIngredient);
+   });
+}
+
+ingredientSearch();
 
 function callDrinkAjax(url) {
   $.ajax({
@@ -42,8 +61,8 @@ function callDrinkAjax(url) {
   });
 }
 
-callDrinkAjax(queryURLIngredient);
-callDrinkAjax(queryURLDrink);
+
+// callDrinkAjax(queryURLDrink);
 
 
 // AJAX METHOD FOR DRINK SEARCH
