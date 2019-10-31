@@ -9,21 +9,8 @@ var queryURLQuote ="https://quote-garden.herokuapp.com/quotes/random";
 // GLOBAL VARIABLES
 var drinksArray = [];
 console.log(drinksArray);
-
 console.log(queryURLIngredient);
 
-//FUNCTION TO DISPLAY INSPIRATIONAL QUOTE
-function inspirationalQuote() {
-  $.ajax({
-    url: queryURLQuote,
-    method: "GET"
-  }).then(function(response) {
-    $("#quotetext").empty();
-    $("#quotetext").append(response.quoteText);
-    $("#quoteauthor").empty();
-    $("#quoteauthor").append(response.quoteAuthor);
-  }); 
-}
 
 // FUNCTION TO DISPLAY UP TO 10 DRINKS
 function displayDrinks(){
@@ -38,6 +25,14 @@ function displayDrinks(){
     console.log(drinksArray);
 }
 
+// FUNCTION DISPLAYING QUOTE
+function displayQuote(response){
+  $("#quoteText").empty();
+  $("#quoteText").text(response.quoteText);
+  $("#quoteAuthor").empty();
+  $("#quoteAuthor").text(response.quoteAuthor);
+}
+
 // FUNCTION GRABBING INGREDIENT INPUT SEARCH AND MAKING AJAX CALL
 function ingredientSearch(){
     // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
@@ -48,13 +43,17 @@ function ingredientSearch(){
     searchIngredient = $("#ingredient").val().trim();
     // CONCATENATE INGREDIENT AND URL
     queryURLIngredient += searchIngredient;
-    // CALL AJAX FOR INGREDIENT SEARCH
-    callDrinkAjax(queryURLIngredient);
+    // AJAX CALLS
+    callAjax(queryURLQuote);
+    callAjax(queryURLIngredient);
+    // ASSIGNING EMPTY VAL TO CLEAR INPUT
+    searchIngredient = $("#ingredient").val("");
     console.log(queryURLIngredient);
     console.log(searchIngredient);
    });
 }
 
+// FUNCTION GRABBING DRINK INPUT SEARCH AND MAKING AJAX CALL
 function drinkSearch(){
     // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
     $("#drinkForm").submit(function(){
@@ -64,8 +63,11 @@ function drinkSearch(){
     searchDrink = $("#drink").val().trim();
     // CONCATENATE INGREDIENT AND URL
     queryURLDrink += searchDrink;
-    // CALL AJAX FOR INGREDIENT SEARCH
-    callDrinkAjax(queryURLDrink);
+    // AJAX CALLS
+    callAjax(queryURLQuote);
+    callAjax(queryURLDrink);
+    // ASSIGNING EMPTY VAL TO CLEAR INPUT
+    searchIngredient = $("#drink").val("");
     console.log(queryURLDrink);
     console.log(searchDrink);
     });
@@ -74,25 +76,33 @@ function drinkSearch(){
 
 
 // AJAX CALL TO COCKTAIL API
-function callDrinkAjax(url) {
+function callAjax(url) {
   $.ajax({
     url: url,
     method: "GET"
   }).then(function(response) {
-    //   LOOP 10 TIMES AND PUSH FIRST 10 DRINKS INTO DRINKSARRAY
-    // if (url === queryURLIngredient) {
+    // CONDITION CHECKING IF QUOTE URL
+    if(url === queryURLQuote){
+      // DISPLAY QUOTE
+      displayQuote(response);
+    } else {
       console.log(response.drinks.length);
+      //   LOOP 10 TIMES AND PUSH FIRST 10 DRINKS INTO DRINKSARRAY
         for(var i = 0; i < response.drinks.length ;i ++){
           console.log(i)
+          // IF GREATER THAN 10 BREAK FUNCTION
           if(i > 10) {
             break
           
           }
+            // PUSH DRINKS INTO DRINK ARRAY
             drinksArray.push(response.drinks[i]);
             console.log(drinksArray);
             
           }
           displayDrinks();
+    }
+      
         
         // INGREDIENT SEARCH
       // Returns an array of drinks containing the ingredient matching the searchterm as objects
@@ -101,7 +111,7 @@ function callDrinkAjax(url) {
     //   console.log(response.drinks[0]);
       // Returns an image of the drink
     //   console.log(response.drinks[0].strDrinkThumb);
-    // } else {
+    
         // DRINK SEARCH
       // Returns an array of drinks matching the searchterm as objects
     //   console.log(response);
@@ -118,7 +128,7 @@ function callDrinkAjax(url) {
     //   console.log(response.drinks[0].strIngredient5);
       // Returns an image of the drink
     //   console.log(response.drinks[0].strDrinkThumb);
-    // }
+  
   });
 }
 
@@ -128,11 +138,3 @@ function init(){
 }
 
 init();
-inspirationalQuote();
-
-
-
-// callDrinkAjax(queryURLDrink);
-
-
-
