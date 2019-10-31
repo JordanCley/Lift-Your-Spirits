@@ -4,13 +4,26 @@ var searchIngredient = "";
 var queryURLIngredient ="";
 var searchDrink = "";
 var queryURLDrink ="";
-var queryURLQuote ="https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/method=getQuote&key=457653&format=jsonp&lang=en";
+var queryURLQuote ="https://quote-garden.herokuapp.com/quotes/random";
 
 // GLOBAL VARIABLES
 var drinksArray = [];
 console.log(drinksArray);
 
 console.log(queryURLIngredient);
+
+//FUNCTION TO DISPLAY INSPIRATIONAL QUOTE
+function inspirationalQuote() {
+  $.ajax({
+    url: queryURLQuote,
+    method: "GET"
+  }).then(function(response) {
+    $("#quotetext").empty();
+    $("#quotetext").append(response.quoteText);
+    $("#quoteauthor").empty();
+    $("#quoteauthor").append(response.quoteAuthor);
+  }); 
+}
 
 // FUNCTION TO DISPLAY UP TO 10 DRINKS
 function displayDrinks(){
@@ -115,6 +128,7 @@ function init(){
 }
 
 init();
+inspirationalQuote();
 
 
 
