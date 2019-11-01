@@ -18,18 +18,22 @@ var drinkBioDisplay = $("#drinkBioDisplay").hide();
 // console.log(drinksArray);
 // console.log(queryURLIngredient);
 
-function reSearch(){
-  $("#searchAgain").on("click", function(){
+function reSearch() {
+  $("#searchAgain").on("click", function() {
+    $("body").css(
+      "background-image",
+      "url(/assets/css/images/wineGlassClear.jpg)"
+    );
     drinkBioDisplay.hide();
     searchDisplay.show();
     brandDisplay.show();
-  })
+  });
 }
-
 
 // ADD CLICK EVENT TO LIST OF DRINKS
 function chooseDrink() {
   $(".drinks").on("click", function() {
+    $("body").css("background-image", "url(/assets/css/images/backWood.jpg)");
     drinkListDisplay.hide();
     drinkBioDisplay.show();
     chosenDrink = $(this)
@@ -49,29 +53,33 @@ function chooseDrink() {
 // STRIPPING DOWN DRINK PROPERTIES TO ISOLATE strIngredient
 function stripIngredients() {
   // FOR IN LOOP LOOPING THROUGH OBJECTS
+  // var newArray = Object.values(drinksArray);
+  // console.log("New array below");
+  // console.log(newArray)
+  // console.log("this is the values " + newArray[0]);
   for (var key in drinksArray[0]) {
     var value = drinksArray[0][key];
     // IF NOT NULL
     if (value != null) {
       // PUSH INTO NEW ARRAY
-      ingredientArray.push(value);
+      ingredientArray.push([key, value]);
+      // console.log(ingredientArray)
+      console.log(ingredientArray[0][0]);
     }
   }
-  }
+}
 
-  // LOOP THROUGH INGREDIENT ARRAY
-  function stripInstructions(){
-    for (var i = 0; i < ingredientArray.length; i++) {
-      // console.log(ingredientArray[i]);
-      // console.log("strIngredient" + i)
-      // IF EQUAL TO 14 AND 15 CHARS
-      if (ingredientArray[i].length >= 14 && ingredientArray[i].length <= 15) {
-        // PUSH INTO NEW ARRAY
-        finalIngredients.push(ingredientArray[i]);
-      }
+// LOOP THROUGH INGREDIENT ARRAY
+function stripInstructions() {
+  for (var i = 0; i < ingredientArray.length; i++) {
+    // console.log(ingredientArray[i]);
+    // console.log("strIngredient" + i)
+    // IF EQUAL TO 14 AND 15 CHARS
+    if (ingredientArray[i].length >= 14 && ingredientArray[i].length <= 15) {
+      // PUSH INTO NEW ARRAY
+      finalIngredients.push(ingredientArray[i]);
+    }
   }
-
-  console.log(finalIngredients);
 }
 
 // DISPLAY PROPERTIES OF CHOSEN DRINK
@@ -86,40 +94,18 @@ function displayChosenDrink() {
   for (var i = 0; i < finalIngredients.length; i++) {
     if (finalIngredients[i] != "strInstructions") {
       var combine = finalIngredients[i];
-      console.log(combine);
-      console.log(drinksArray[0].strIngredient1);
+
+      // console.log(combine);
+      // console.log(drinksArray[0].strIngredient1);
 
       // ****** STUCK HERE ********
-
-      // console.log(finalIngredients[i]);
-      // console.log(drinksArray[0]+ "." + finalIngredients[i]);
-
-      // var ingredientItem = $("<li>");
-      // $("#ingredientList").text(drinksArray[0].finalIngredients[i]);
-
-      // $("#ingredientList").append(ingredientItem);
-      // console.log(finalIngredients[i]);
     }
   }
-  // for(var key in drinksArray[0]){
-  //   var value = drinksArray[0][key];
-  //   if(value != null){
-  //     ingredientArray.push(key);
-
-  //   }
-  // }
-  // console.log(ingredientArray);
-  // for(var i = 0;i < ingredientArray.length;i ++){
-  //   // console.log(ingredientArray[i]);
-  //   // console.log("strIngredient" + i)
-  //   if(ingredientArray[i].length >= 14 && ingredientArray[i].length <= 15){
-  //     console.log(ingredientArray[i]);
-  //   }
-  // }
 }
 
 // FUNCTION TO DISPLAY UP TO 10 DRINKS
 function displayDrinks() {
+  $("body").css("background-image", "url(/assets/css/images/wood.jpg)");
   $("#drinkList").empty();
   for (var i = 0; i < drinksArray.length; i++) {
     var drink = $("<li>");
@@ -136,7 +122,7 @@ function displayDrinks() {
 // FUNCTION DISPLAYING QUOTE
 function displayQuote(response) {
   $("#quoteText").empty();
-  $("#quoteText").text("\"" + response.quoteText + "\"");
+  $("#quoteText").text('"' + response.quoteText + '"');
   $("#quoteAuthor").empty();
   $("#quoteAuthor").text("-" + response.quoteAuthor + "-");
 }
@@ -162,8 +148,6 @@ function ingredientSearch() {
     callAjax(queryURLIngredient);
     // ASSIGNING EMPTY VAL TO CLEAR INPUT
     searchIngredient = $("#ingredient").val("");
-    // console.log(queryURLIngredient);
-    // console.log(searchIngredient);
   });
 }
 
@@ -172,8 +156,6 @@ function drinkSearch() {
   // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
   $("#drinkForm").submit(function() {
     event.preventDefault();
-    $("body").css({backgroundImage : "url(images/wood.jpg)"});
-    // $('body').css({backgroundImage : 'url(images/wood.jpg)'});
     searchDisplay.hide();
     brandDisplay.hide();
     drinkListDisplay.show();
@@ -189,8 +171,6 @@ function drinkSearch() {
     callAjax(queryURLDrink);
     // ASSIGNING EMPTY VAL TO CLEAR INPUT
     searchIngredient = $("#drink").val("");
-    // console.log(queryURLDrink);
-    // console.log(searchDrink);
   });
 }
 
@@ -206,6 +186,7 @@ function callAjax(url, arr) {
       displayQuote(response);
     } else {
       // console.log(response);
+      $("body").css("background-image", "url(/assets/css/images/wood.jpg)");
       //   LOOP 10 TIMES AND PUSH FIRST 10 DRINKS INTO DRINKSARRAY
       for (var i = 0; i < response.drinks.length; i++) {
         // console.log(i)
@@ -214,11 +195,8 @@ function callAjax(url, arr) {
           break;
         }
         // PUSH DRINKS INTO DRINK ARRAY
-        drinksArray.push(response.drinks[i]);
 
-        // console.log(drinksArray[0].strDrinkThumb);
-        // console.log(drinksArray);
-        
+        drinksArray.push(response.drinks[i]);
       }
       displayChosenDrink();
       stripIngredients();
