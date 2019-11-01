@@ -1,60 +1,56 @@
 div.ui.container {
-    border-top: 5px solid black;
-    border-bottom: 5px solid black;
-    padding: 10px 10px 10px 10px;
-    margin-top: 100px;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  padding: 10px 10px 10px 10px;
+  margin-top: 100px;
 }
 h1.ui.left.header {
-    font-family: 'Monoton', cursive;
-    font-size: 7rem;
-  
+  font-family: "Monoton", cursive;
+  font-size: 7rem;
 }
 
-
-
 body {
-    font-family: 'Rock Salt', cursive;
-    color: white;
-    padding: 0;
-    margin-bottom: 10px;
-    background-image: url("images/wineGlassClear.jpg");
-    /* background-image: url("images/backWood.jpg"); */
-    /* background-image: url("images/wood.jpg"); */
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100%;
-    background-color: black;
+  font-family: "Rock Salt", cursive;
+  color: white;
+  padding: 0;
+  margin-bottom: 10px;
+  background-image: url("images/wineGlassClear.jpg");
+  /* background-image: url("images/backWood.jpg"); */
+  /* background-image: url("images/wood.jpg"); */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+  background-color: black;
 }
 
 .bioText {
-    color: white;
+  color: white;
 }
 
 div.ui.segment.drinkBio {
-    color: white;
-    text-align: center;
-    font-size: 1.5rem;
-    height: 100%;
-    background: rgba(80, 77, 77, 0.3);
-    margin-top: 200px;
-    margin-bottom: 100px;
-    padding: 90px 200px 100px 200px;
-    
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  height: 100%;
+  background: rgba(80, 77, 77, 0.3);
+  margin-top: 200px;
+  margin-bottom: 100px;
+  padding: 90px 200px 100px 200px;
 }
 
 ol li {
-    list-style-type: none;
-    padding-right: 40px;
+  list-style-type: none;
+  padding-right: 40px;
 }
 
 #drinkName {
-    font-family: 'Monoton', cursive;
-    font-size: 3rem;
+  font-family: "Monoton", cursive;
+  font-size: 3rem;
 }
 
 .bioLabel {
-    font-family: 'Monoton', cursive;
-    font-size: 2rem;
+  font-family: "Monoton", cursive;
+  font-size: 2rem;
 }
 
 div.ui.drinkContainer {
@@ -66,56 +62,51 @@ div.ui.drinkContainer {
   border-bottom: 3px solid black;
 }
 .drinks:hover {
-    color: white;
+  color: white;
 }
 
 div.row.orDiv {
-   padding:  10px 0px 0px 70px !important;
+  padding: 10px 0px 0px 70px !important;
 }
 
-
 #brand {
-    font-family: 'Monoton', cursive;
-    font-size: 4rem;
+  font-family: "Monoton", cursive;
+  font-size: 4rem;
 }
 
 .flex-container {
-    display: flex;
-    justify-content: left;
-    margin-top: 100px;
-    padding: 0em 0em 0em 25em;
-    margin-bottom: 0;
+  display: flex;
+  justify-content: left;
+  margin-top: 100px;
+  padding: 0em 0em 0em 25em;
+  margin-bottom: 0;
 }
 
 /******* PUSHING BRAND LEFT AFTER DESKTOP */
-@media screen and (max-width: 1200px){
-    .flex-container {
-        padding-left: 2em;
-    }
-    div.ui.drinkContainer {
-        font-size: 2rem;
-        line-height: 3rem;
-        padding-left: 100px;
-      }
-      h1.ui.left.header {
-        font-size: 5rem;
-      
-    }
-    img {
-        width: 250px;
-        height: 250px;
-    }
-    div.ui.segment.drinkBio {
-        color: white;
-        text-align: center;
-        font-size: 1.5rem;
-        height: 100%;
-        background: rgba(80, 77, 77, 0.3);
-        margin-top: 10px;
-        margin-bottom: 200px;
-        padding: 10px 10px 200px 10px;
-        
-    }
-    
+@media screen and (max-width: 1200px) {
+  .flex-container {
+    padding-left: 2em;
+  }
+  div.ui.drinkContainer {
+    font-size: 2rem;
+    line-height: 3rem;
+    padding-left: 100px;
+  }
+  h1.ui.left.header {
+    font-size: 5rem;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  div.ui.segment.drinkBio {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 100%;
+    background: rgba(80, 77, 77, 0.3);
+    margin-top: 10px;
+    margin-bottom: 200px;
+    padding: 10px 10px 200px 10px;
+  }
 }
-
