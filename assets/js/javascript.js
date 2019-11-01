@@ -10,12 +10,28 @@ var drinksArray = [];
 var chosenDrink = "";
 var ingredientArray = [];
 var finalIngredients = [];
+var searchDisplay = $("#searchDisplay").hide();
+var brandDisplay = $("#brandDisplay").hide();
+var drinkListDisplay = $("#drinkListDisplay").hide();
+var drinkBioDisplay = $("#drinkBioDisplay").hide();
 
 // console.log(drinksArray);
 // console.log(queryURLIngredient);
 
+function reSearch(){
+  $("#searchAgain").on("click", function(){
+    drinkBioDisplay.hide();
+    searchDisplay.show();
+    brandDisplay.show();
+  })
+}
+
+
+// ADD CLICK EVENT TO LIST OF DRINKS
 function chooseDrink() {
   $(".drinks").on("click", function() {
+    drinkListDisplay.hide();
+    drinkBioDisplay.show();
     chosenDrink = $(this)
       .text()
       .trim();
@@ -64,6 +80,7 @@ function displayChosenDrink() {
   $("#drinkName").text(drinksArray[0].strDrink);
   $("#instructions").text(drinksArray[0].strInstructions);
   $("img").attr("src", image);
+  reSearch();
   stripIngredients();
   stripInstructions();
   for (var i = 0; i < finalIngredients.length; i++) {
@@ -119,9 +136,9 @@ function displayDrinks() {
 // FUNCTION DISPLAYING QUOTE
 function displayQuote(response) {
   $("#quoteText").empty();
-  $("#quoteText").text(response.quoteText);
+  $("#quoteText").text("\"" + response.quoteText + "\"");
   $("#quoteAuthor").empty();
-  $("#quoteAuthor").text(response.quoteAuthor);
+  $("#quoteAuthor").text("-" + response.quoteAuthor + "-");
 }
 
 // FUNCTION GRABBING INGREDIENT INPUT SEARCH AND MAKING AJAX CALL
@@ -129,6 +146,9 @@ function ingredientSearch() {
   // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
   $("#ingredientForm").submit(function() {
     event.preventDefault();
+    searchDisplay.hide();
+    brandDisplay.hide();
+    drinkListDisplay.show();
     queryURLIngredient =
       "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
     // SELECTING INGREDIENT INPUT FROM FORM
@@ -152,6 +172,11 @@ function drinkSearch() {
   // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
   $("#drinkForm").submit(function() {
     event.preventDefault();
+    $("body").css({backgroundImage : "url(images/wood.jpg)"});
+    // $('body').css({backgroundImage : 'url(images/wood.jpg)'});
+    searchDisplay.hide();
+    brandDisplay.hide();
+    drinkListDisplay.show();
     queryURLDrink = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
     // SELECTING INGREDIENT INPUT FROM FORM
     searchDrink = $("#drink")
@@ -205,6 +230,8 @@ function callAjax(url, arr) {
 function init() {
   ingredientSearch();
   drinkSearch();
+  searchDisplay.show();
+  brandDisplay.show();
 }
 
 init();

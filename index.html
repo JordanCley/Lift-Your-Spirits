@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LIFT YOUR SPIRITS</title>
+    <link rel="shortcut icon" href="assets/css/images/favicon.ico" type="image/x-icon">
 
     <!-- SEMANTIC UI -->
     <link
@@ -13,21 +14,26 @@
     />
 
     <!-- GOOGLE FONTS LINK -->
-    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Monoton|Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    
     <!-- BRAND DIV -->
-    <div class="flex-container">
+    <div id="brandDisplay" class="flex-container">
       <h1 id="brand">Lift Your Spirits <span>&reg;</span> </h1>
     </div>
 
     <!-- SEARCH FORM -->
-    <div class="ui two column left grid container">
+    <div id="searchDisplay" class="ui two column left grid container">
       <div class="row">
         <h2>Search for your favorite ingredient!</h2>
       </div>
@@ -54,26 +60,51 @@
     </div>
 
     <!-- DRINK LIST DISPLAY -->
-    <!-- <div>
+    <div id="drinkListDisplay" class="ui segment drinkContainer">
+      <h1 class="ui left header">Drinks</h1>
       <ol id="drinkList">
-    
+        <!-- <li class="drinks">Long Island</li>
+        <li class="drinks">Old fashion</li>
+        <li>Margarita</li>
+        <li>57 Chevy</li>
+        <li>Pina Collada</li>
+        <li>Jack Daniels</li>
+        <li>Lucy Love</li>
+        <li>Lucy Love</li>
+        <li>Lucy Love</li>
+        <li>Lucy Love</li> -->
     </ol>
-    </div> -->
+    </div>
 
     <!-- PICKED DRINK DESCRIPTION -->
-    <!-- <div>
-      <h1 id="drinkName"></h1>
-      <img src="" alt="" />
-      <h2>Ingredients</h2>
-      <ol id="ingredientList">
-   
-    </ol>
-      <h2>Instructions</h2>
-      <p id="instructions"></p>
-      <h3>Inspirational quote</h3>
-      <p id="quoteText"></p>
-      <p id="quoteAuthor"></p>
-    </div> -->
+    <div id="drinkBioDisplay" class="ui segment drinkBio">
+      <img src="assets/css/images/fruity.jpg" alt="" />
+      <div class="content">
+        <h1 id="drinkName">Long Island</h1>
+        <button id="searchAgain" class="ui inverted button">Search Again</button>
+        <h2 class="bioLabel">Instructions</h2>
+        <p class="bioText" id="instructions">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+          eligendi magnam aperiam voluptatem dolorem laboriosam ut libero.
+          Perspiciatis, voluptate aut aliquid, repudiandae quos unde esse
+          accusantium, fuga quisquam optio consectetur?
+        </p>
+        <h2 class="bioLabel">Ingredients</h2>
+        <ol id="ingredientList">
+          <li class="bioText">orange</li>
+          <li class="bioText">strawberry</li>
+          <li class="bioText">kael</li>
+          <li class="bioText">ice</li>
+        </ol>
+        <div>
+          <p class="bioText" id="quoteText"><span>"</span></p>
+          <p class="bioText" id="quoteAuthor">- Jordan McQuiston -</p>
+          
+        </div>
+      </div>
+    </div>
+
+
 
     <!-- JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

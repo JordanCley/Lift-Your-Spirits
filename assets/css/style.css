@@ -4,22 +4,75 @@ div.ui.container {
     padding: 10px 10px 10px 10px;
     margin-top: 100px;
 }
+h1.ui.left.header {
+    font-family: 'Monoton', cursive;
+    font-size: 7rem;
+  
+}
+
+
 
 body {
-    font-family: ;
+    font-family: 'Rock Salt', cursive;
     color: white;
     padding: 0;
-    margin: 0;
+    margin-bottom: 10px;
     background-image: url("images/wineGlassClear.jpg");
+    /* background-image: url("images/backWood.jpg"); */
+    /* background-image: url("images/wood.jpg"); */
     background-repeat: no-repeat;
     background-position: center top;
     background-size: 100%;
     background-color: black;
 }
 
+.bioText {
+    color: white;
+}
+
+div.ui.segment.drinkBio {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 100%;
+    background: rgba(80, 77, 77, 0.3);
+    margin-top: 200px;
+    margin-bottom: 100px;
+    padding: 90px 200px 100px 200px;
+    
+}
+
+ol li {
+    list-style-type: none;
+    padding-right: 40px;
+}
+
+#drinkName {
+    font-family: 'Monoton', cursive;
+    font-size: 3rem;
+}
+
+.bioLabel {
+    font-family: 'Monoton', cursive;
+    font-size: 2rem;
+}
+
+div.ui.drinkContainer {
+  color: black;
+  background: rgba(80, 77, 77, 0.5);
+  font-size: 4rem;
+  line-height: 7rem;
+  padding-left: 500px;
+  border-bottom: 3px solid black;
+}
+.drinks:hover {
+    color: white;
+}
+
 div.row.orDiv {
    padding:  10px 0px 0px 70px !important;
 }
+
 
 #brand {
     font-family: 'Monoton', cursive;
@@ -39,4 +92,30 @@ div.row.orDiv {
     .flex-container {
         padding-left: 2em;
     }
+    div.ui.drinkContainer {
+        font-size: 2rem;
+        line-height: 3rem;
+        padding-left: 100px;
+      }
+      h1.ui.left.header {
+        font-size: 5rem;
+      
+    }
+    img {
+        width: 250px;
+        height: 250px;
+    }
+    div.ui.segment.drinkBio {
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        height: 100%;
+        background: rgba(80, 77, 77, 0.3);
+        margin-top: 10px;
+        margin-bottom: 200px;
+        padding: 10px 10px 200px 10px;
+        
+    }
+    
 }
+
