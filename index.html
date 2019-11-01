@@ -5,56 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LIFT YOUR SPIRITS</title>
+
+    <!-- SEMANTIC UI -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+    />
+
+    <!-- GOOGLE FONTS LINK -->
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
   </head>
   <body>
+    
+    <!-- BRAND DIV -->
+    <div class="flex-container">
+      <h1 id="brand">Lift Your Spirits <span>&reg;</span> </h1>
+    </div>
 
-      <!-- SEARCH FORM -->
-    <div>
-      <h2>Search for your favorite liquor or ingredient!!</h2>
-      <form action="" id="ingredientForm">
-        <input type="text" id="ingredient"/>
-        <input type="submit" value="Search" />
-      </form>
-      <h2>Search for your favorite drink!</h2>
-      <form action="" id="drinkForm">
-        <input type="text" id="drink"/>
-        <input type="submit" value="Search" />
-      </form>
+    <!-- SEARCH FORM -->
+    <div class="ui two column left grid container">
+      <div class="row">
+        <h2>Search for your favorite ingredient!</h2>
+      </div>
+      <div ">
+        <form action="" id="ingredientForm">
+          <input type="text" id="ingredient" />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
+
+      <div class="row orDiv">
+        <h1>OR</h1>
+      </div>
+
+      <div class="row">
+        <h2>Search for your favorite drink!</h2>
+      </div>
+      <div >
+        <form action="" id="drinkForm">
+          <input type="text" id="drink" />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
     </div>
 
     <!-- DRINK LIST DISPLAY -->
-    <div>
+    <!-- <div>
       <ol id="drinkList">
-        <!-- Appending li here for drinks with certain ingredient -->
-      </ol>
-    </div>
+    
+    </ol>
+    </div> -->
 
     <!-- PICKED DRINK DESCRIPTION -->
-    <div>
-      <h1>Name of Drink</h1>
-      <img src="" alt="">
+    <!-- <div>
+      <h1 id="drinkName"></h1>
+      <img src="" alt="" />
       <h2>Ingredients</h2>
-      <ol>
-        <!-- appeding li here for ingredients -->
-      </ol>
+      <ol id="ingredientList">
+   
+    </ol>
       <h2>Instructions</h2>
-      <p>
-        Lorem, ipsum amet consectetur adipisicing elit. Omnis,
-        praesentium! Neque corrupti doloribus culpa error hic laboriosam porro
-        sint blanditiis! Ullam pariatur tempore qui alias repellendus vitae
-        fugit, asperiores vel tempora, eligendi adipisci ex in officiis quasi
-        perferendis molestiae? Culpa eum consequatur eaque ipsam libero ducimus
-        laborum nesciunt commodi consequuntur quod odit, voluptate, ad velit
-        aspernatur doloribus veritatis? Voluptate, optio. Cum non, magnam
-        voluptate nam asperiores adipisci nobis velit maiores quis eaque neque
-        consequuntur hic? Cumque unde laudantium nobis facilis dolores
-        recusandae illum eaque, ad ex esse sit quidem molestiae quo consequuntur
-        officia distinctio quasi! Non commodi unde neque ratione.
-      </p>
+      <p id="instructions"></p>
       <h3>Inspirational quote</h3>
       <p id="quoteText"></p>
       <p id="quoteAuthor"></p>
-    </div>
+    </div> -->
 
     <!-- JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
