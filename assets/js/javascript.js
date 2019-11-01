@@ -80,6 +80,7 @@ function stripInstructions() {
       finalIngredients.push(ingredientArray[i]);
     }
   }
+  console.log(finalIngredients);
 }
 
 // DISPLAY PROPERTIES OF CHOSEN DRINK
@@ -212,4 +213,6 @@ function init() {
   brandDisplay.show();
 }
 
-init();
+$(document).ready(function() {
+  init();
+});
