@@ -22,7 +22,7 @@ function reSearch() {
   $("#searchAgain").on("click", function() {
     $("body").css(
       "background-image",
-      "url(/assets/css/images/wineGlassClear.jpg)"
+      "url(./assets/css/images/wineGlassClear.jpg)"
     );
     drinkBioDisplay.hide();
     searchDisplay.show();
@@ -33,7 +33,7 @@ function reSearch() {
 // ADD CLICK EVENT TO LIST OF DRINKS
 function chooseDrink() {
   $(".drinks").on("click", function() {
-    $("body").css("background-image", "url(/assets/css/images/backWood.jpg)");
+    $("body").css("background-image", "url(./assets/css/images/backWood.jpg)");
     drinkListDisplay.hide();
     drinkBioDisplay.show();
     chosenDrink = $(this)
@@ -85,6 +85,7 @@ function stripInstructions() {
 
 // DISPLAY PROPERTIES OF CHOSEN DRINK
 function displayChosenDrink() {
+  // $("body").css("background-image", "url(./assets/css/images/backWood.jpg)");
   var image = drinksArray[0].strDrinkThumb;
   $("#drinkName").text(drinksArray[0].strDrink);
   $("#instructions").text(drinksArray[0].strInstructions);
@@ -106,7 +107,7 @@ function displayChosenDrink() {
 
 // FUNCTION TO DISPLAY UP TO 10 DRINKS
 function displayDrinks() {
-  $("body").css("background-image", "url(/assets/css/images/wood.jpg)");
+  // $("body").css("background-image", "url(./assets/css/images/wood.jpg)");
   $("#drinkList").empty();
   for (var i = 0; i < drinksArray.length; i++) {
     var drink = $("<li>");
@@ -133,6 +134,8 @@ function ingredientSearch() {
   // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
   $("#ingredientForm").submit(function() {
     event.preventDefault();
+  $("body").css("background-image", "url(./assets/css/images/wood.jpg)");
+
     searchDisplay.hide();
     brandDisplay.hide();
     drinkListDisplay.show();
@@ -157,6 +160,8 @@ function drinkSearch() {
   // SUBMIT LISTENER FOR INGREDIENT SEARCH INPUT
   $("#drinkForm").submit(function() {
     event.preventDefault();
+  $("body").css("background-image", "url(./assets/css/images/wood.jpg)");
+
     searchDisplay.hide();
     brandDisplay.hide();
     drinkListDisplay.show();
@@ -187,7 +192,6 @@ function callAjax(url, arr) {
       displayQuote(response);
     } else {
       // console.log(response);
-      $("body").css("background-image", "url(/assets/css/images/wood.jpg)");
       //   LOOP 10 TIMES AND PUSH FIRST 10 DRINKS INTO DRINKSARRAY
       for (var i = 0; i < response.drinks.length; i++) {
         // console.log(i)
@@ -211,6 +215,10 @@ function init() {
   drinkSearch();
   searchDisplay.show();
   brandDisplay.show();
+  $("body").css(
+    "background-image",
+    "url(./assets/css/images/wineGlassClear.jpg)"
+  );
 }
 
 $(document).ready(function() {
