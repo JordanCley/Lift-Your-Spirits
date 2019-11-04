@@ -44,6 +44,7 @@ function chooseDrink() {
     // console.log(queryURLDrink)
     callAjax(queryURLDrink);
     callAjax(queryURLQuote);
+    displayChosenDrink();
     // console.log(queryURLDrink);
     // console.log(chosenDrink);
     // console.log(drinksArray[drinks][0]);
@@ -85,7 +86,6 @@ function stripInstructions() {
 
 // DISPLAY PROPERTIES OF CHOSEN DRINK
 function displayChosenDrink() {
-  // $("body").css("background-image", "url(./assets/css/images/backWood.jpg)");
   var image = drinksArray[0].strDrinkThumb;
   $("#drinkName").text(drinksArray[0].strDrink);
   $("#instructions").text(drinksArray[0].strInstructions);

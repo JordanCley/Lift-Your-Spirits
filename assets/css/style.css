@@ -7,11 +7,12 @@ div.ui.container {
 h1.ui.left.header {
   font-family: "Monoton", cursive;
   font-size: 7rem;
+  padding-left: 200px;
 }
 
 body {
   font-family: "Rock Salt", cursive;
-  color: white;
+  color: rgb(214, 144, 13);;
   padding: 0;
   margin-bottom: 10px;
   /* background-image: url("images/wineGlassClear.jpg"); */
@@ -24,11 +25,11 @@ body {
 }
 
 .bioText {
-  color: white;
+  color:rgb(214, 144, 13);
 }
 
 div.ui.segment.drinkBio {
-  color: white;
+  color: rgb(214, 144, 13);
   text-align: center;
   font-size: 1.5rem;
   height: 100%;
@@ -54,11 +55,11 @@ ol li {
 }
 
 div.ui.drinkContainer {
-  color: black;
+  color: rgb(214, 144, 13);
   background: rgba(80, 77, 77, 0.5);
   font-size: 4rem;
   line-height: 7rem;
-  padding-left: 500px;
+  padding-left: 200px;
   border-bottom: 3px solid black;
 }
 .drinks:hover {
@@ -72,6 +73,16 @@ div.row.orDiv {
 #brand {
   font-family: "Monoton", cursive;
   font-size: 4rem;
+}
+
+img {
+    border: 2px solid rgb(214, 144, 13);;
+    border-radius: 10rem;
+}
+
+#searchAgain    {
+    color: rgb(214, 144, 13);
+    border-radius: 10rem;
 }
 
 .flex-container {
@@ -90,10 +101,11 @@ div.row.orDiv {
   div.ui.drinkContainer {
     font-size: 2rem;
     line-height: 3rem;
-    padding-left: 100px;
+    padding-left: 50px;
   }
   h1.ui.left.header {
     font-size: 5rem;
+    padding-left: 50px;
   }
   img {
     width: 250px;
