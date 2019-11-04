@@ -12,5 +12,5 @@ This is an application that allows you to search for cocktails either by a speci
 ## Author
 
 Jordan McQuiston <br>
- Kevin <br> 
- Ryan 
+ Kevin Heintz <br> 
+ Ryan Braudo
